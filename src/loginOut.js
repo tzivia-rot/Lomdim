@@ -1,13 +1,9 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Link, createSearchParams, useNavigate } from "react-router-dom";
 import { addteacher } from "./listteachers";
 // import { connect } from 'react-redux';
 
 //  export default connect(()=>{} function loginOut(props)){
-let Navigate = useNavigate();
-const { dispatch } = this.props;
-const nameRef = useRef("");
-const idRef = idRef("");
 
 // export default function loginOut(){
 
@@ -16,7 +12,12 @@ const idRef = idRef("");
 //   )
 // }
 
-export default function loginOut() {
+export default function LoginOut() {
+  let Navigate = useNavigate();
+  // const { dispatch } = props;
+  const nameRef = useRef("");
+  const idRef = idRef("");
+
   // dispatch(
   //   addteacher({ name: nameRef.current.value, id: idRef.current.value })
   // );
@@ -39,25 +40,24 @@ export default function loginOut() {
     Navigate("/");
   };
 
+  return (
+    <div>
+      <h1>הרשמה למורים</h1>
 
-return (
-  <div>
-    <h1>הרשמה למורים</h1>
+      <label>
+        name:
+        <input ref={nameRef} type="string"></input>
+      </label>
 
-    <label>
-      name:
-      <input ref={nameRef} type="string"></input>
-    </label>
+      <label>
+        id:
+        <input ref={idRef} type="string"></input>
+      </label>
 
-    <label>
-      id:
-      <input ref={idRef} type="string"></input>
-    </label>
+      <Link to={"/"}>to start</Link>
 
-    <Link to={"/"}>to start</Link>
-
-    <button onClick={backToHome}>back to start</button>
-  </div>
-);
+      <button onClick={backToHome}>back to start</button>
+    </div>
+  );
 }
 // export default insertTeacher;

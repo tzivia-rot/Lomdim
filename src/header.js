@@ -1,32 +1,36 @@
-import React from 'react'
-import logo from './picthers/logo.png';
+import React from "react";
+import { Link } from "react-router-dom";
 
-
-
-
-
-export default function header() {
+export default function Header() {
   return (
     <div>
+      <h1>ברוכים הבאים למאגר הלומדים</h1>
 
-              <header>
+      <>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/recomment">חוות דעת</Link>
+            </li>
+            {/* <li>
+            <Link to="/login">Login</Link>
+          </li>
 
-              <nav className="heder">
-            <div>
-              
-              <h3>header</h3>
-              
-              <input><img className="logo" src={logo}/> </input>
-              <input>home   connection   Opinion   register</input>
-  
-
-
-                
-                
-            </div>
-            
+          <li>
+            <Link to="/loginOut">LoginOut</Link>
+          </li> */}
+          </ul>
         </nav>
-</header>
+        {/* <button onClick={loginOut}>הרשמה למורה</button> */}
+      </>
+
+      {/* <Login />
+
+  
+    <Outlet /> */}
     </div>
-  )
+  );
 }
