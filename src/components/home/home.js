@@ -1,5 +1,13 @@
 import React from 'react';
+import './home.css'
+import imgHome from '../picthers/imgHome.jpg'
 
 export default function Home() {
-  return (<>home</>);
+  return (
+  <>
+    <img id='imgHome' src={imgHome}/>
+    <div>home</div>
+  </>
+  
+  );
 }
