@@ -1,29 +1,22 @@
 import React from 'react';
 import "./App.css";
-import Header from "./components/header/header";
-import Footer from "./components/footer/footer";
-import Body from "./components/body/body";
-import { Route, Router, Routes } from 'react-router-dom';
+import Header from './components/header/header';
+import Footer from './components/footer/footer';
+// import { Outlet } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import Login from './components/LoginOut/login';
 
 function App() {
   return (
-    <div className="App">
-    {/* <Router> */}gnvnv
-      <Header />
-      {/* <Routes>
-        <Route path='/' exact component={Header} />
-        <Route path='/about' component={Header} />
-        <Route path='/events' component={Header} />
-        <Route path='/annual' component={Header} />
-        <Route path='/team' component={Header} />
-        <Route path='/blogs' component={Header} />
-        <Route path='/sign-up' component={Header} />
-      </Routes> */}
-      <Body />
-      <Footer />
-    {/* </Router> */}
 
+    <div className="App">
+       <Header /> 
+  
+       <Footer />
+ 
+      
     </div>
+  
   );
 }
 export default App;

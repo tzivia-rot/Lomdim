@@ -1,10 +1,14 @@
 
 import React from 'react';
 import {Nav, NavLink, Bars, NavMenu, NavBtn, NavBtnLink,} from '../NavbarElements';
-  
+// import { Outlet } from 'react-router-dom';
+
+import { Link } from 'react-router-dom';  
 const Header = () => {
   return (
     <>
+       
+
       <Nav>
         <Bars />
         <img id='logo' alt='logo' src='.../picthers/logo.png'/>
@@ -27,11 +31,12 @@ const Header = () => {
 
         </NavMenu>
         <NavBtn>
-          <NavBtnLink to='/sign-in'>התחברות</NavBtnLink>
-          <NavBtnLink to='/sign-out'>יצירת פרופיל מורה חדש</NavBtnLink>
+          <NavBtnLink to='/login'>התחברות</NavBtnLink>
+          <NavBtnLink to='/register'>יצירת פרופיל מורה חדש</NavBtnLink>
         </NavBtn>
       </Nav>
     </>
+
   );
 };
   
