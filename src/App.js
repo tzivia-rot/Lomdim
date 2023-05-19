@@ -5,13 +5,14 @@ import Footer from './components/footer/footer';
 // import { Outlet } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import Login from './components/LoginOut/login';
+import Body from './components/body/body';
 
 function App() {
   return (
 
     <div className="App">
        <Header /> 
-  
+        <Body/>
        <Footer />
  
       

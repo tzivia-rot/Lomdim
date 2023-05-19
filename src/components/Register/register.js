@@ -1,6 +1,8 @@
 import { Connect } from 'react-redux'
 // import Login from '../LoginOut/login';
 import React ,{ useRef, useState} from "react";
+import '../Register/register.css';
+
 
 export default function Register() {
   const nameRef = useRef("");
@@ -24,12 +26,12 @@ export default function Register() {
     e.preventDefault();
   };
   return ( 
-    <form onSubmit={submit}>
+    <form  class="close" onSubmit={submit}>
 
 
-
+<div class='inputSignup'>
     <label htmlFor="pone">pone:</label>
-    <input
+    <input  
       ref={poneRef}
       type="text"
       id="pone"
@@ -75,19 +77,20 @@ export default function Register() {
     />
     <br/><br/>
 
-    <label htmlFor="confirm">confirm Password:</label>
+  <label htmlFor="password">confirmPassword:</label>
     <input
-    ref={confirmRef}
-      type="confirm"
-      id="confirm"
-      onChange={(e) => setconfirm(e.target.value)}
-      value={confirm}
+    ref={idRef}
+      type="password"
+      id="password"
+      onChange={(e) => setpassword(e.target.value)}
+      value={password}
       required
     />
-    <br/><br/>
-
-    <button onClick={submit}>sign up</button>
-
+    </div>
+<div>
+    <button type='signupbtn' onClick={submit}>sign up</button>
+    <button type='cancelbtn' onClick={submit}>close</button>
+</div>
   </form> 
  
   )

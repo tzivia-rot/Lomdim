@@ -1,14 +1,48 @@
-/* .bg {
-  background-color: orangered;
-  height: 40vmin;
-  width: 60px;
-} */
+
+
 
 .text{
-  color: darkblue;
-  font-family:initial;
+  width: 20%;
+  color: rgb(2, 59, 14);
+  font-family:'Franklin Gothic Medium';
+  /* background-color: rgb(179, 245, 207); */
+  scrollbar-shadow-color: darkcyan; 
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .signin{
   color: darkblue;
+}
 
+#profil{
+  width: 15%;
+  border-radius: 50%;
+}
+
+#button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+
+button:hover {
+  opacity: 0.8;
+}
+.container {
+  padding: 2px;
+  width: 190px;
+}
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
 }
