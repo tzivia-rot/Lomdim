@@ -12,7 +12,7 @@ const Footer = () => {
             <FooterLink href="#">בלוג</FooterLink>
             <FooterLink href="#">צור קשר עם צוות האתר</FooterLink>
           </Column>
-          <Column>
+          <Column id="txt">
             <p>
             ©2023 כל הזכויות שמורות לאתר לימוד נעים
   אין להעתיק או לעשות שימוש בכל חלק מהאתר</p>
