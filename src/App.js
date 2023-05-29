@@ -3,7 +3,7 @@ import "./App.css";
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
 import Body from "./components/body/body";
-import { Route, Router, Routes } from 'react-router-dom';
+//import { Route, Router, Routes } from 'react-router-dom';
 
 function App() {
   return (
