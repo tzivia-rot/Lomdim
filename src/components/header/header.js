@@ -1,6 +1,7 @@
 
 import React from 'react';
-import {Nav, NavLink, Bars, NavMenu, NavBtn, NavBtnLink, NavDropDown } from './NavbarElements';
+import {Nav, NavLink, Bars, NavMenu, NavBtn, NavBtnLink, NavDropDown } from './headerStyle';
+import logo from '../picthers/logo.png'
 
 const Header = () => {
   return (
