@@ -5,6 +5,7 @@ import Footer from "./components/footer/footer";
 import { BrowserRouter, Route, Router, Routes } from 'react-router-dom';
 import Home from './components/home/home';
 
+
 function App() {
   return (
     <div className="App">
