@@ -7,9 +7,9 @@ const Header = () => {
     <>
       <Nav>
         <Bars />
-        <img id='logo' alt='logo' src='.../picthers/logo.png'/>
+        <img id='logo' alt='logo' src={logo}/>
         <NavMenu>
-          <NavLink to='/בית' activeStyle>
+          <NavLink to='/'  activeStyle>
             בית
           </NavLink>
           {/* <NavDropDown title="חומרי לימוד">
