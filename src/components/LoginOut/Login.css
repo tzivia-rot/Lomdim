@@ -2,16 +2,20 @@
 
 
 .text{
+  /* display: flex; */
+  justify-content: center; 
+  align-items: center;
   width: 20%;
   color: rgb(2, 59, 14);
   font-family:'Franklin Gothic Medium';
   /* background-color: rgb(179, 245, 207); */
   scrollbar-shadow-color: darkcyan; 
-  background-repeat: no-repeat;
+  /* background-repeat: no-repeat; */
   background-size: cover;
 }
 .signin{
   color: darkblue;
+  /* cursor: pointer; */
 }
 
 #profil{
@@ -20,13 +24,21 @@
 }
 
 #button {
+  
+  color: rgb(228, 228, 240);
+  /* cursor: pointer; */
   background-color: #04AA6D;
   color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
+  /* padding: 14px 20px; */
+  /* margin: 8px 0; */
+  /* border: none; */
+  /* cursor: pointer; */
+  /* width: 100%; */
+  padding: 2px;
+  width: 190px;
+  align-items:center;
+  width: 190px;
+
 }
 
 
@@ -45,4 +57,6 @@ input[type=text], input[type=password] {
   display: inline-block;
   border: 1px solid #ccc;
   box-sizing: border-box;
+    text-align: center;
+
 }

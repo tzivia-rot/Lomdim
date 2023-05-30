@@ -4,9 +4,17 @@ import React, { useRef, useState, useEffect, useContext } from "react";
 // import { Link, createSearchParams, useNavigate } from "react-router-dom";
 import AuthContext from "../contex/authProvider";
 import "../LoginOut/Login.css";
-import ProfilTeacher from "../profilTecher/profilTeacher";
 // import { json } from "react-router-dom";
 import profil from '../profil.png';
+
+import {
+  Nav,
+  NavLink,
+  Bars,
+  NavMenu,
+  NavBtn,
+  NavBtnLink,
+} from "../NavbarElements";
 
 
 export default function Login() {
@@ -26,13 +34,17 @@ export default function Login() {
   const handlesubmit = async (e) => {
     e.preventDefault();
   };
-  function ProfilTeacher() {
-    <ProfilTeacher/>
+  function ProfilTeacher1() {
+    return(
+
+      <></>
+    )
  }
   return (
     <>
+    <div  style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
       <img id='profil' img src={profil} />
-
+    </div>
       {succsess ? (
         <section>
           <h1>you are logged in!</h1>
@@ -51,10 +63,8 @@ export default function Login() {
             {" "}
             {errMsg}
           </p>
-
-          <h1></h1>
-
-          <form  className="text" onSubmit={handlesubmit}>
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          <form  class="text" onSubmit={handlesubmit}>
             <label htmlFor="username">userName:</label>
 
             <input class="container"
@@ -71,7 +81,7 @@ export default function Login() {
 
             <label htmlFor="password">password:</label>
 
-            <input class="container"
+            <input class="container"  
               type="password"
               id="password"
               onChange={(e) => setpassword(e.target.value)}
@@ -80,14 +90,20 @@ export default function Login() {
             />
             <br />
             <br />
-              <button id='button' onClick={ProfilTeacher} className="signin">
-              sign In
-            </button>
+            <Nav  id='button'>
+              <NavBtn>
+                 <NavBtnLink  to="/profilTeacher" >sign In</NavBtnLink >
+              </NavBtn>
+            </Nav>
+            {/* <button  to="/profilTeacher" className="signin"> */}
+              {/* sign In */}
+            {/* </button> */}
               <br /> <br />
           </form>
           <p>
             <br />
-          </p>
+          </p>  
+         </div>
         </section>
       )}
     </>
@@ -100,4 +116,4 @@ export default function Login() {
 //   <button onClick={backToHome}>back to start</button>
 // </div>
 
-// export default profilTeacher;
+// export default ProfilTeacher;

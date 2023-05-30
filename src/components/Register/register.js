@@ -2,6 +2,7 @@ import { Connect } from 'react-redux'
 // import Login from '../LoginOut/login';
 import React ,{ useRef, useState} from "react";
 import '../Register/register.css';
+import profil from '../profil.png';
 
 
 export default function Register() {
@@ -26,6 +27,10 @@ export default function Register() {
     e.preventDefault();
   };
   return ( 
+    <>
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+      <img class='profil' img src={profil} />
+
     <form  class="close" onSubmit={submit}>
 
 
@@ -91,8 +96,10 @@ export default function Register() {
     <button type='signupbtn' onClick={submit}>sign up</button>
     <button type='cancelbtn' onClick={submit}>close</button>
 </div>
-  </form> 
- 
+
+  </form>
+  </div> 
+ </>
   )
   
 }

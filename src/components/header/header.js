@@ -17,19 +17,19 @@ const Header = () => {
         <Bars />
         <img id="logo" alt="logo" src=".../picthers/logo.png" />
         <NavMenu>
-          <NavLink to="/בית" activeStyle>
+          <NavLink to="/home" activeStyle>
             בית
           </NavLink>
-          <NavLink to="/חומרי_לימוד" activeStyle>
+          <NavLink to="/Detail" activeStyle>
             חומרי לימוד
           </NavLink>
-          <NavLink to="/אודות" activeStyle>
+          <NavLink to="/about" activeStyle>
             אודות
           </NavLink>
-          <NavLink to="/צור_קשר" activeStyle>
+          <NavLink to="/called" activeStyle>
             צור קשר
           </NavLink>
-          <NavLink to="/בלוג" activeStyle>
+          <NavLink to='/blog' activeStyle>
             בלוג
           </NavLink>
         </NavMenu>

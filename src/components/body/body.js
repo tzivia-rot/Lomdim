@@ -10,8 +10,8 @@ import Register from '../Register/register';
 export default function Body() {
   return (
     <>
-    <Login/>
-    <Register/>
+    {/* {/* <Login/> */}
+    {/* <Register/> */}
     </>
     // <>
     //   <Routes>
