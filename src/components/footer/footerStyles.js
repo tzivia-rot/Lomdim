@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Box = styled.div`
   direction:rtl;
   ${'' /* padding: 80px 60px; */}
-  background: #002B6D;
+  background: #2E59A7;
   position: absolute;
   width: 100%;
   height: auto;

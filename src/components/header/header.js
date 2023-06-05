@@ -1,14 +1,14 @@
 
 import React from 'react';
 import {Nav, NavLink, Bars, NavMenu, NavBtn, NavBtnLink, NavDropDown } from './headerStyle';
-import logo from '../picthers/logo.png'
+import logoImg from '../picthers/logoImg.png'
 
 const Header = () => {
   return (
     <>
       <Nav>
         <Bars />
-        <img id='logo' alt='logo' src={logo}/>
+        <img id='logo' alt='logo' src={logoImg}/>
         <NavMenu>
           <NavLink to='/'  activeStyle>
             בית
@@ -19,9 +19,9 @@ const Header = () => {
             <NavDropDown.Item to='עברית'>עברית</NavDropDown.Item>
             <NavDropDown.Item to='מדעים'>מדעים</NavDropDown.Item>
           </NavDropDown> */}
-          {/* <NavLink to='/חומרי_לימוד' activeStyle>
+          <NavLink to='/חומרי_לימוד' activeStyle>
             חומרי לימוד
-          </NavLink> */}
+          </NavLink>
           <NavLink to='/אודות' activeStyle>
             אודות
           </NavLink>
