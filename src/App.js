@@ -7,6 +7,10 @@ import { Link } from 'react-router-dom';
 import Login from './components/LoginOut/login';
 import Register from './components/Register/register';
 import Body from './components/body/body';
+//import { BrowserRouter, Route, Router, Routes } from 'react-router-dom';
+import Home from './components/home/home';
+//import About from './components/about/about';
+
 
 function App() {
   return (
@@ -19,4 +23,6 @@ function App() {
   
   );
 }
+
+
 export default App;
