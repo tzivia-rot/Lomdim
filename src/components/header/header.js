@@ -1,4 +1,6 @@
 
+// import { Outlet } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import React from 'react';
 import {Nav, NavLink, Bars, NavMenu, NavBtn, NavBtnLink, NavDropDown } from './headerStyle';
 import logoImg from '../picthers/logoImg.png'
@@ -22,24 +24,23 @@ const Header = () => {
           <NavLink to='/חומרי_לימוד' activeStyle>
             חומרי לימוד
           </NavLink>
-          <NavLink to='/אודות' activeStyle>
+          <NavLink to="/about" activeStyle>
             אודות
           </NavLink>
-          <NavLink to='/צור_קשר' activeStyle>
+          <NavLink to="/called" activeStyle>
             צור קשר
           </NavLink>
-          <NavLink to='/בלוג' activeStyle>
+          <NavLink to='/blog' activeStyle>
             בלוג
           </NavLink>
-
         </NavMenu>
         <NavBtn>
-          <NavBtnLink to='/sign-in'>התחברות</NavBtnLink>
-          <NavBtnLink to='/sign-out'>יצירת פרופיל מורה חדש</NavBtnLink>
+          <NavBtnLink to="/login">התחברות</NavBtnLink>
+          <NavBtnLink to="/register">יצירת פרופיל מורה חדש</NavBtnLink>
         </NavBtn>
       </Nav>
     </>
   );
 };
-  
+
 export default Header;
