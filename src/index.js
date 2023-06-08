@@ -10,7 +10,7 @@ import { Route, Router, Routes } from "react-router-dom";
 import Called from './components/called/called';
 import About from './components/about/about.js';
 import Blog from './components/blog/blog';
-import Login from "./components/LoginOut/login";
+import Login from "./components/Login/login";
 import Register from "./components/Register/register";
 import { FaBlog } from "react-icons/fa";
 import ProfilTeacher from './components/profilTecher/profilTeacher';
