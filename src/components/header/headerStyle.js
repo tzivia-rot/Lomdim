@@ -2,7 +2,7 @@ import { FaBars } from 'react-icons/fa';
 import { NavLink as Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const NavDropDown = styled.nav``
+export const NavDropdown = styled.nav``
 
 export const Nav = styled.nav`
 border-bottom: 1px solid black;

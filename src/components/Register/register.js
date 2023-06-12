@@ -2,7 +2,7 @@ import { Connect } from 'react-redux'
 // import Login from '../LoginOut/login';
 import React ,{ useRef, useState} from "react";
 import '../Register/register.css';
-import profil from '../profil.png';
+import profil from '../picthers/profil.png';
 
 
 export default function Register() {

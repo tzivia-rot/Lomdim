@@ -7,24 +7,23 @@ import { BrowserRouter, Form } from "react-router-dom";
 import { AuthProvider } from "./components/contex/authProvider";
 import { Route, Router, Routes } from "react-router-dom";
 
-import Called from './components/called/called';
 import About from './components/about/about.js';
 import Blog from './components/blog/blog';
 import Login from "./components/Login/login";
 import Register from "./components/Register/register";
 import { FaBlog } from "react-icons/fa";
 import ProfilTeacher from './components/profilTecher/profilTeacher';
+import ContactUs from "./components/contactUs/contactUs";
 
 ReactDOM.render(
   <React.StrictMode>
-    <header></header>
     <BrowserRouter>
       <AuthProvider>
       <App />
         <Routes>
           <Route path="/"/>
           <Route path="/blog" element={<Blog/>} />
-          <Route path="/called" element={<Called/>} />
+          <Route path="/contactUs" element={<ContactUs/>} />
           <Route path="/about" element={<About/>} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />

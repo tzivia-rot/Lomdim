@@ -2,7 +2,7 @@
 // import { Outlet } from 'react-router-dom';
 import { Link } from "react-router-dom";
 import React from 'react';
-import {Nav, NavLink, Bars, NavMenu, NavBtn, NavBtnLink, NavDropDown } from './headerStyle';
+import {Nav, NavLink, Bars, NavMenu, NavBtn, NavBtnLink, NavDropdown } from './headerStyle';
 import logoImg from '../picthers/logoImg.png'
 
 const Header = () => {
