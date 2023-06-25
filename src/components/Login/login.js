@@ -6,7 +6,8 @@ import AuthContext from "../contex/authProvider";
 import "./login.css";
 // import { json } from "react-router-dom";
 import profil from "../picthers/profil.png";
-import {Nav, NavLink, Bars, NavMenu, NavBtn, NavBtnLink, NavDropDown } from '../header/headerStyle';
+import { Nav, NavBtn, NavBtnLink} from "../Login/loginStyle";
+import { Form } from "react-router-dom";
 
 
 export default function Login() {
@@ -26,49 +27,45 @@ export default function Login() {
   const handlesubmit = async (e) => {
     e.preventDefault();
   };
-  function ProfilTeacher1() {
-    return <></>;
-  }
+  // function ProfilTeacher1() {
+  //   return <></>;
+  // }
   return (
     <>
-      <div
-        style={{
+    <div className="login-wapper">
+       {/* <div 
+       style={{
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
         }}
-      >
-        <img id="profil" img src={profil} />
-      </div>
-      {succsess ? (
-        <section>
+        >
+        <img id="profil" alt="imgProfil" img src={profil} />
+      </div> */}
+      {succsess ? (<section>
           <h1>you are logged in!</h1>
           <br />
           <p>
             <a href="#">go to Home</a>
           </p>
-        </section>
-      ) : (
+        </section>) 
+        : (
         <section>
-          <p
-            ref={errRef}
+          <p ref={errRef}
             className={errMsg ? "errmsg" : "offscreen"}
-            aria-live="assertive"
-          >
+            aria-live="assertive">
             {" "}
             {errMsg}
           </p>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <form class="text" onSubmit={handlesubmit}>
-              <label htmlFor="username">userName:</label>
+          <div>
+              <div>
+                <h3>כניסה למשתמש רשום</h3>
+              </div>
+
+            <form className="text" onSubmit={handlesubmit}>
+              <label htmlFor="username">שם משתמש:</label>
               <input
-                class="container"
+                className="container"
                 ref={userRef}
                 type="text"
                 id="username"
@@ -79,9 +76,9 @@ export default function Login() {
               />
               <br />
               <br />
-              <label htmlFor="password">password:</label>
+              <label htmlFor="password">סיסמא:</label>
               <input
-                class="container"
+                className="container"
                 type="password"
                 id="password"
                 onChange={(e) => setpassword(e.target.value)}
@@ -90,22 +87,17 @@ export default function Login() {
               />
               <br />
               <br />
-              <Nav id="button">
+              <Nav className="button">
                 <NavBtn>
-                  <NavBtnLink to="/profilTeacher">sign In</NavBtnLink>
+                  <NavBtnLink to="/profilTeacher">כניסה</NavBtnLink>
                 </NavBtn>
               </Nav>
-              {/* <button  to="/profilTeacher" className="signin"> */}
-              {/* sign In */}
-              {/* </button> */}
               <br /> <br />
             </form>
-            <p>
-              <br />
-            </p>
           </div>
         </section>
       )}
+      </div>
     </>
   );
 }

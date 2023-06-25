@@ -1,69 +1,62 @@
-input[type=text], input[type=password] {
-    width: 100%;
-    padding: 15px;
-    margin: 5px 0 22px 0;
-    display: inline-block;
-    border: none;
-    background: #f1f1f1;
+
+div.register-wapper, div.detail-wapper{
+  text-align: right;
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-bottom: 20px;
+  border-radius: 15px;
+  background-color: #f2f2f2;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+h3.title-register{
+  padding-top: 20px;
+}
+
+div.checkbox-wapper, div.textarea{
+  padding: 10px;
+}
+
+label.text-detail{
+  font-weight: bold;
+}
+
+select#active, select#year{
+  width: auto;
+  margin-right: 10px;
+}
+
+input[type=text], input[type=password], textarea {
+    border: 1px solid #ccc;
+    border-radius: 4px;
   }
-  
-  /* Add a background color when the inputs get focus */
-  input[type=text]:focus, input[type=password]:focus {
-    background-color: #ddd;
+
+input[type=text]:focus, input[type=password]:focus, textarea:focus {
+    border: 1px solid #555;
     outline: none;
   }
-  .profil{
-    width: 15%;
-    border-radius: 50%;
-    top:100%;
-    /* padding: 250px; */
-    
-    
-  }
-  button {
-    background-color: #04AA6D;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    opacity: 0.9;
-  }
-  button:hover {
-    opacity:1;
-  }
-  .clearfix::after {
-    content: "";
-    clear: both;
-    display: table;
-  }
-.close{
-  /* text-align:center; */
-        position: absolute;
-        /* right: 35px; */
-        /* top: 15px; */
-        /* font-size: 40px; */
-        font-weight: bold;
-        color: #0c4411;
-        margin-right:100px;
-        top:45%;
-      }
-      .signupbtn {
-        width: 100%;
-        color:rgb(5, 116, 23);
-      }
-      .cancelbtn {
-        width: 100%;
-        color:brown;
-     }
-     .clearfix::after {
-        content: "";
-        clear: both;
-        display: table;
-      }
-      hr {
-        border: 1px solid #f1f1f1;
-        margin-bottom: 25px;
-      }
 
+  textarea{
+    width: 100%;
+  }
+
+ #textDetail{
+  height: 100px;
+  size: 20px; ;
+ }
+
+
+ button.btn-save1 {
+  background-color: #2E59A7;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button.btn-save1:hover {
+  background-color: #1448a9;
+}

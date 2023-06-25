@@ -10,8 +10,8 @@ export default function About() {
         <img id="imgAboutPage" alt="imgAboutPage" src={imgAboutPage} />
       </div>
       
-      <div id="txt1">
-        <h2>אודות</h2>
+      <div className="txt1">
+        <h1>אודות</h1>
         <p>
           אתר כאן לומדים הוקם על ידי קבוצת סטודנטיות, העוסקות בתחומים שונים.
           <br /> <br />

@@ -1,105 +1,114 @@
-import { Connect } from 'react-redux'
-// import Login from '../LoginOut/login';
-import React ,{ useRef, useState} from "react";
-import '../Register/register.css';
-import profil from '../picthers/profil.png';
+import { connect } from "react-redux";
+import React, { useRef, useState } from "react";
+import "../Register/register.css";
+import { Nav, NavBtn, NavBtnLink } from "../header/headerStyle";
+import PersonalDetails from "./personalDetails";
+import { addUser } from "../action";
+
+export default connect()( function Register(props) {
+const { dispatch } = props;
 
 
-export default function Register() {
-  const nameRef = useRef("");
-  const idRef = useRef("");
-  const poneRef=useRef("");
-  const mailRef=useRef("");
+  const firstNameRef = useRef("");
+  const lastNameRef = useRef("");
+  const mailRef = useRef("");
+  const passwordRef = useRef("");
+  const confirmPasswordRef = useRef("");
 
-  const confirmRef =useRef("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [mail, setMail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
-
-
-  const [pone, setpone] = useState("");
-  const [user, setuser] = useState("");
-  const [password, setpassword] = useState("");
-  const [confirm, setconfirm] = useState("");
-  const [mail, setmail] = useState("");
-
-
-
-  const submit = async (e) => {
+  const submit = (e) => {
+    while (password.value !== confirmPassword.value) {
+      alert("סיסמה ואימות סיסמה אינם תואמים");
+    }
     e.preventDefault();
   };
-  return ( 
+
+  function insertNewUser(){
+    dispatch(addUser({
+      firstName:firstNameRef.current.value, 
+      lastName:lastNameRef.current.value,
+      email:mailRef.current.value,
+      password:passwordRef.current.value
+    }))
+  }
+
+  return (
     <>
-    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-      <img class='profil' img src={profil} />
+      <div className="register-wapper">
+        <h3 className="title-register">הרשמה</h3>
+        <form className="form" onSubmit={submit} action="/personal_details">
+          <div className="register-details">
+            <div className="input-wapper">
+              <input
+                placeholder="שם פרטי"
+                ref={firstNameRef}
+                type="text"
+                id="firstName"
+                autoComplete="on"
+                onChange={(e) => setFirstName(e.target.value)}
+                value={firstName}
+                required
+              />
+            </div>
+            <div className="input-wapper">
+              <input
+                placeholder="שם משפחה"
+                ref={lastNameRef}
+                type="text"
+                id="lastName"
+                autoComplete="off"
+                onChange={(e) => setLastName(e.target.value)}
+                value={lastName}
+                required
+              />
+            </div>
 
-    <form  class="close" onSubmit={submit}>
+            <div className="input-wapper">
+              <input
+                placeholder="אימייל"
+                ref={mailRef}
+                type="text"
+                id="pone"
+                autoComplete="off"
+                onChange={(e) => setMail(e.target.value)}
+                value={mail}
+                required
+              />
+            </div>
+            <div className="input-wapper">
+              <input
+                placeholder="סיסמא"
+                ref={passwordRef}
+                type="password"
+                id="password"
+                onChange={(e) => setPassword(e.target.value)}
+                value={password}
+                required
+              />
+            </div>
+            <div className="input-wapper">
+              <input
+                placeholder="אימות סיסמא"
+                ref={confirmPasswordRef}
+                type="password"
+                id="password"
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                value={confirmPassword}
+                required
+              />
+            </div>
+          </div>
 
-
-<div class='inputSignup'>
-    <label htmlFor="pone">pone:</label>
-    <input  
-      ref={poneRef}
-      type="text"
-      id="pone"
-      autoComplete="off"
-      onChange={(e) => setpone(e.target.value)}
-      value={pone}
-      required
-    />
-    <br/><br/>
-
-    <label htmlFor="mail">mail:</label>
-    <input
-      ref={mailRef}
-      type="text"
-      id="pone"
-      autoComplete="off"
-      onChange={(e) => setmail(e.target.value)}
-      value={mail}
-      required
-    />
-    <br/><br/>
-
-    <label htmlFor="user">userName:</label>
-    <input
-      ref={nameRef}
-      type="text"
-      id="user"
-      autoComplete="off"
-      onChange={(e) => setuser(e.target.value)}
-      value={user}
-      required
-    />
-    <br/><br/>
-    
-    <label htmlFor="password">password:</label>
-    <input
-    ref={idRef}
-      type="password"
-      id="password"
-      onChange={(e) => setpassword(e.target.value)}
-      value={password}
-      required
-    />
-    <br/><br/>
-
-  <label htmlFor="password">confirmPassword:</label>
-    <input
-    ref={idRef}
-      type="password"
-      id="password"
-      onChange={(e) => setpassword(e.target.value)}
-      value={password}
-      required
-    />
-    </div>
-<div>
-    <button type='signupbtn' onClick={submit}>sign up</button>
-    <button type='cancelbtn' onClick={submit}>close</button>
-</div>
-
-  </form>
-  </div> 
- </>
-  )
-  
-}
+          <button type="submit" class="btn-save1" onClick={insertNewUser}>
+            שמור והמשך
+          </button>
+        </form>
+      </div>
+    </>
+  );
+})
