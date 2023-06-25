@@ -4,13 +4,9 @@ img#imgAboutPage{
     width: 100%;
 }
 
-div#txt1{
+div.txt1{
     border-radius:15px;
     text-align: right;
-    background-color: white;
     padding: 20px;
-    border: 1px solid black;
     margin: 20px;
-    margin-right: 40px;
-    margin-left: 40px;
 }

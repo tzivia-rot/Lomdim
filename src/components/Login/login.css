@@ -1,62 +1,31 @@
 
+.login-wapper{
+  direction: rtl;
+  text-align: right;
+  background-color:#f2f2f2;
+  margin: 20px;
+  margin-left: 25%;
+  margin-right: 25%;
+  border-radius: 15px;
+  padding: 30px;
+}
 
 
 .text{
-  /* display: flex; */
   justify-content: center; 
   align-items: center;
-  width: 20%;
-  color: rgb(2, 59, 14);
-  font-family:'Franklin Gothic Medium';
-  /* background-color: rgb(179, 245, 207); */
-  scrollbar-shadow-color: darkcyan; 
-  /* background-repeat: no-repeat; */
+  text-align: right;
   background-size: cover;
 }
-.signin{
-  color: darkblue;
-  /* cursor: pointer; */
-}
 
-#profil{
-  width: 15%;
-  border-radius: 50%;
-}
-
-#button {
-  
-  color: rgb(228, 228, 240);
-  /* cursor: pointer; */
-  background-color: #04AA6D;
-  color: white;
-  /* padding: 14px 20px; */
-  /* margin: 8px 0; */
-  /* border: none; */
-  /* cursor: pointer; */
-  /* width: 100%; */
-  padding: 2px;
-  width: 190px;
-  align-items:center;
-  width: 190px;
-
-}
-
-
-button:hover {
-  opacity: 0.8;
-}
-.container {
-  padding: 2px;
-  width: 190px;
-}
 
 input[type=text], input[type=password] {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
-  border: 1px solid #ccc;
+  /* border: 1px solid #ccc; */
   box-sizing: border-box;
-    text-align: center;
+  text-align: right;
 
 }

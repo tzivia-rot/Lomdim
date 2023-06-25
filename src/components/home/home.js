@@ -9,11 +9,11 @@ export default function Home() {
 
       <div className="searchTech">
         <form>
-          <div className="findTechTxt">מצאו מורה:</div>
+          <div className="findTechTxt">מצא מורה:</div>
           <div className="inputSearch">
             <input type="text" placeholder="מקצוע" />
             <input type="text" placeholder="יישוב" />
-            <button type="submit"> חיפוש </button>
+            <button type="submit" className="submit"> חיפוש </button>
             <br />
           </div>
         </form>
