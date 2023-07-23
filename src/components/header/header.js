@@ -30,18 +30,18 @@ const Header = () => {
           {/* <NavLink to='/חומרי_לימוד' activeStyle>
             חומרי לימוד
           </NavLink> */}
-          <NavLink>
+          {/* <NavLink>
             <Menu compact>
             <Dropdown  text='Dropdown' options={options} simple item>
-              {/* <Dropdown.Menu>
+              <Dropdown.Menu>
                 <Dropdown.Item>אנגלית</Dropdown.Item>
                 <Dropdown.Item>מתמטיקה</Dropdown.Item>
                 <Dropdown.Item>עברית</Dropdown.Item>
                 <Dropdown.Item>מדעים</Dropdown.Item>
-              </Dropdown.Menu> */}
+              </Dropdown.Menu>
             </Dropdown>
             </Menu>
-          </NavLink>
+          </NavLink> */}
           
           <NavLink to="/about" activeStyle>
             אודות
@@ -55,7 +55,7 @@ const Header = () => {
         </NavMenu>
         <NavBtn>
           <NavBtnLink to="/login">התחברות</NavBtnLink>
-          <NavBtnLink to="/register">יצירת פרופיל מורה חדש</NavBtnLink>
+          <NavBtnLink to="/register"> משתמש חדש</NavBtnLink>
         </NavBtn>
       </Nav>
     </>

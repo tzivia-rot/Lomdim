@@ -6,13 +6,11 @@ import Register from "../Register/register";
 import Blog from "../blog/blog";
 import ContactUs from "../contactUs/contactUs";
 import About from "../about/about";
-import English from "../SubjectsOfStudy/english";
-import Hebrew from "../SubjectsOfStudy/hebrew";
-import Math from "../SubjectsOfStudy/math";
-import Science from "../SubjectsOfStudy/science";
-import PersonalDetails from "../Register/personalDetails";
-import ProfilTeacher from "../profilTecher/profilTeacher";
+import PersonalDetails from "../Register/professionalDetails";
 import HowToLearnEnglish from "../blog/items-blogs/howToLearnEnglish";
+import AccountPupil from "../accountPupil/accountPupil";
+import AccountTeacher from "../accountTeacher/accountTeacher";
+import PageTeacher from "../pageTeacher/pageTeacher";
 
 export default function Body() {
   return (
@@ -25,12 +23,10 @@ export default function Body() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/personal_details" element={<PersonalDetails />} />
-        <Route path="/profil_teacher" element={<ProfilTeacher />} />
+        <Route path="/account_pupil" element={<AccountPupil />} />
+        <Route path="/account_teacher" element={<AccountTeacher />} />
+        <Route path="/page_teacher" element={<PageTeacher />} />
         <Route path="/about" element={<About />} />
-        <Route path="/english" element={<English />} />
-        <Route path="/hebrew" element={<Hebrew />} />
-        <Route path="/math" element={<Math />} />
-        <Route path="/scince" element={<Science />} />
       </Routes>
     </>
   );
