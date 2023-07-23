@@ -8,7 +8,7 @@ export default function Home() {
       <img id="imgHome" alt="imgHome" src={imgHome} />
 
       <div className="searchTech">
-        <form>
+        {/* <form>
           <div className="findTechTxt">מצא מורה:</div>
           <div className="inputSearch">
             <input type="text" placeholder="מקצוע" />
@@ -16,7 +16,7 @@ export default function Home() {
             <button type="submit" className="submit"> חיפוש </button>
             <br />
           </div>
-        </form>
+        </form> */}
       </div>
     </>
   );

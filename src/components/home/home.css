@@ -20,8 +20,8 @@ input[type=text], select {
   box-sizing: border-box;
 }
 
-button.submit {
-  width: 10%;
+/* button {
+  width: 100%;
   background-color: #2E59A7;
   color: white;
   padding: 14px 20px;
@@ -31,9 +31,9 @@ button.submit {
   cursor: pointer;
 }
 
-button.submit:hover {
+button:hover {
   background-color: #1448a9;
-}
+} */
 
 .findTechTxt{
   text-align: right;

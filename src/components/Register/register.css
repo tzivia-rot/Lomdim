@@ -1,5 +1,4 @@
-
-div.register-wapper, div.detail-wapper{
+div.register-wapper {
   text-align: right;
   margin-left: 25%;
   margin-right: 25%;
@@ -10,45 +9,58 @@ div.register-wapper, div.detail-wapper{
   padding-left: 20px;
 }
 
-h3.title-register{
+div.address {
+  display: flex;
+}
+
+h3.title-register {
   padding-top: 20px;
 }
 
-div.checkbox-wapper, div.textarea{
+div.checkbox-wapper,
+div.textarea {
   padding: 10px;
 }
 
-label.text-detail{
+label.text-detail {
   font-weight: bold;
 }
 
-select#active, select#year{
+select#active,
+select#year {
   width: auto;
   margin-right: 10px;
 }
 
-input[type=text], input[type=password], textarea {
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
+input#newCategory {
+  width: 50%;
+}
 
-input[type=text]:focus, input[type=password]:focus, textarea:focus {
-    border: 1px solid #555;
-    outline: none;
-  }
+input[type="text"],
+input[type="password"],
+textarea {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
 
-  textarea{
-    width: 100%;
-  }
+input[type="text"]:focus,
+input[type="password"]:focus,
+textarea:focus {
+  border: 1px solid #555;
+  outline: none;
+}
 
- #textDetail{
+textarea {
+  width: 100%;
+}
+
+#textDetail {
   height: 100px;
-  size: 20px; ;
- }
+  size: 20px;
+}
 
-
- button.btn-save1 {
-  background-color: #2E59A7;
+button.btn-save1 {
+  background-color: #2e59a7;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -59,4 +71,10 @@ input[type=text]:focus, input[type=password]:focus, textarea:focus {
 
 button.btn-save1:hover {
   background-color: #1448a9;
+}
+
+path.bi {
+  width: 20px;
+  height: 20px;
+  fill: #2e59a7;
 }

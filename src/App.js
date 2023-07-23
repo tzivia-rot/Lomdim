@@ -3,7 +3,11 @@ import "./App.css";
 import Header from './components/header/header';
 import Footer from './components/footer/footer';
 import Body from './components/body/body';
-import PersonalDetails from './components/Register/personalDetails';
+import PageTeשcher from './components/pageTeacher/pageTeacher';
+import accountTeacher from './components/accountTeacher/accountTeacher';
+import ProfessionalDetails from './components/Register/professionalDetails';
+import AccountPupil from './components/accountPupil/accountPupil';
+import ModalCategories from './components/Register/modalCategories';
 
 // import { Outlet } from 'react-router-dom';
 // import { Link } from 'react-router-dom';
@@ -15,8 +19,11 @@ function App() {
 
     <div className="App"> 
       <Header />
-      {/* <PersonalDetails/>  */}
+      {/* <PageTeacher/> */}
        <Body/>
+       {/* <AccountPupil/> */}
+       {/* <accountTeacher/> */}
+       {/* <ProfessionalDetails/> */}
        <Footer /> 
     </div>
   
