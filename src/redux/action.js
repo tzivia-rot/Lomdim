@@ -22,6 +22,9 @@ export function updateTeacherDetails(update) {
   return { type: "UPDATE_TEACHER_DETAILS", payLoad: update };
 }
 
+export function setAllTeacher(set) {
+  return { type: "SET_ALL_TEACHERS", payLoad: set };
+}
 
 //categories
 export function setAllCategories(add) {
@@ -34,4 +37,10 @@ export function showCategory(show) {
 
 export function deleteCategory(delet) {
   return { type: "DELETE_CATEGOTY", payLoad: delet };
+}
+
+
+//lesson
+export function setAllLessons(set) {
+  return { type: "SET_ALL_LESSONS", payLoad: set };
 }

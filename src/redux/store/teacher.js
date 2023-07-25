@@ -1,7 +1,7 @@
 import { produce } from "immer";
 
 const initialState = {
-  teacherDetails: {}
+  teacherDetails: {},
 };
 
 const reducer = produce((state, action) => {
@@ -12,11 +12,13 @@ const reducer = produce((state, action) => {
     case "UPDATE_TEACHER_DETAILS":
       state.teacherDetais = action.payLoad;
       break;
+    case "SET_ALL_TEACHERS":
+      state.category = action.payLoad;
+      break;
 
     default:
       break;
   }
 }, initialState);
 
-
-export default reducer
+export default reducer;

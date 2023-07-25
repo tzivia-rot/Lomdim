@@ -4,7 +4,7 @@ import "./accountPupil.css";
 import Map from "../maps/gMaps";
 import { connect } from "react-redux";
 import axios from "axios";
-import { setAllCategories } from "../../redux/action";
+import { setAllCategories, setAllTeacher } from "../../redux/action";
 
 function mapStateToProps(state) {
   return {
@@ -16,6 +16,9 @@ function CreateLesson(props) {
   const { categories, dispatch } = props;
   const [selected, setSelected] = useState("");
 
+  
+  
+  //כאשר עולה הדף יכנס לסטור כל הקטגוריות בנמצאות במסד נתונים
   useEffect(() => {
     axios
       .get(`http://localhost:3030/category/getAllCategories`)
@@ -28,6 +31,24 @@ function CreateLesson(props) {
         console.log(err);
       });
   }, []);
+
+  //מוביל לדף של רשימת מורים שעונים על דרישות המחפש
+  function searchTeachet() {
+    axios
+      .get(`http://localhost:3030/teacherData/getAllTeachers`)
+      .then((res) => {
+        console.log(res.data);
+        dispatch(setAllTeacher(res.data.getAllTeachers));
+        
+        //const filterTeacher = ()=> 
+
+      })
+      .catch((err) => {
+        alert("error");
+        console.log(err);
+      });
+  }
+
 
   return (
     <>
@@ -49,8 +70,8 @@ function CreateLesson(props) {
           </div>
           <Map />
           <div className="button-search">
-            <button>
-               חפש
+            <button onClick={searchTeachet}>
+              חפש
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"

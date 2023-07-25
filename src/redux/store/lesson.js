@@ -1,17 +1,13 @@
 import { produce } from "immer";
 
 const initialState = {
-  lesson: [
-    {
-
-    }
-  ],
+  lesson: [{}],
 };
 
 const reducer = produce((state, action) => {
   switch (action.type) {
-    case "ADD_LESSON":
-      state.teacherDetais.push(action.payLoad);
+    case "SET_ALL_LESSONS":
+      state.lesson = action.payLoad;
       break;
     default:
       break;
