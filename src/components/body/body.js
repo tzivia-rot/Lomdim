@@ -10,7 +10,7 @@ import HowToLearnEnglish from "../blog/items-blogs/howToLearnEnglish";
 import AccountPupil from "../accountPupil/accountPupil";
 import AccountTeacher from "../accountTeacher/accountTeacher";
 import PageTeacher from "../pageTeacher/pageTeacher";
-//import ContactUs from "../contactUs/contactUs";
+//import ContactUs from "../contactUs/ContactUs.js"
 
 export default function Body() {
   return (

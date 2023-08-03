@@ -47,10 +47,10 @@ function ProfessionalDetails(props) {
 
   function handleChange3(e) {
     if (e.target.checked) {
-      setAllCheckedPlace([...allCheckedPlace, e.target.value]);
+      setAllCheckedPlace([...allCheckedPlace, e.target.id]);
     } else {
       setAllCheckedPlace(
-        allCheckedPlace.filter((item) => item !== e.target.value)
+        allCheckedPlace.filter((item) => item !== e.target.id)
       );
     }
   }
