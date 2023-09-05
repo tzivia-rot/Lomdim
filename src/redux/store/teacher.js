@@ -1,21 +1,22 @@
 import { produce } from "immer";
 
 const initialState = {
-  teacherDetails: {},
+  teacherDetails: [],
 };
 
 const reducer = produce((state, action) => {
   switch (action.type) {
     case "ADD_TEACHER_DETAILS":
-      state.teacherDetais.push(action.payLoad);
+      if (state.teacherDetails.lengh) {state.teacherDetails.push(action.payLoad)};
       break;
     case "UPDATE_TEACHER_DETAILS":
-      state.teacherDetais = action.payLoad;
+      state.teacherDetails.filter((index) => index._id !== action.payLoad._id);
       break;
     case "SET_ALL_TEACHERS":
-      state.category = action.payLoad;
+      state.teacherDetails = action.payLoad;
       break;
-
+    case "GET_ALL_TEACHERS":
+      return state.teacherDetails;
     default:
       break;
   }

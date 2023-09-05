@@ -23,7 +23,6 @@ export default function Map() {
 
   const panTo = React.useCallback(({ lat, lng }) => {
     mapRef.current.panTo({ lat, lng });
-    //mapRef.current.setZoom(14);
   }, []);
 
   if (loadError) return "Error loading maps";
@@ -60,7 +59,7 @@ function Search({ panTo }) {
         onSelect={async (address) => {
           setValue(address, false);
           //עשה שגיאה - כיבנו ונבדוק אח"כ
-          // clearsuggestion();
+          clearsuggestion();
           try {
             const results = await getGeocode({ address });
             const { lat, lng } = await getLatLng(results[0]);
@@ -76,7 +75,7 @@ function Search({ panTo }) {
             setValue(e.target.value);
           }}
           disabled={!ready}
-          placeholder="מיקום"
+          placeholder="הכנס מיקום"
         />
         <ComboboxPopover>
           <ComboboxList>

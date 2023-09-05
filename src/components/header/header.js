@@ -10,12 +10,6 @@ import { Dropdown, Menu } from 'semantic-ui-react'
 
 
 const Header = () => {
-  const options = [
-    { key: 1, text: 'אנגלית', value: 1 },
-    { key: 2, text: 'מתמטיקה', value: 2 },
-    { key: 3, text: 'עברית', value: 3 },
-    { key: 4, text: 'מדעים', value: 4 },
-]
 
   return (
     <>
@@ -26,23 +20,6 @@ const Header = () => {
           <NavLink to='/'  activeStyle>
             בית
           </NavLink>
-          
-          {/* <NavLink to='/חומרי_לימוד' activeStyle>
-            חומרי לימוד
-          </NavLink> */}
-          {/* <NavLink>
-            <Menu compact>
-            <Dropdown  text='Dropdown' options={options} simple item>
-              <Dropdown.Menu>
-                <Dropdown.Item>אנגלית</Dropdown.Item>
-                <Dropdown.Item>מתמטיקה</Dropdown.Item>
-                <Dropdown.Item>עברית</Dropdown.Item>
-                <Dropdown.Item>מדעים</Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
-            </Menu>
-          </NavLink> */}
-          
           <NavLink to="/about" activeStyle>
             אודות
           </NavLink>
@@ -58,6 +35,7 @@ const Header = () => {
           <NavBtnLink to="/register"> משתמש חדש</NavBtnLink>
         </NavBtn>
       </Nav>
+
     </>
   );
 };

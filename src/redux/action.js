@@ -4,6 +4,10 @@ export function addUser(newUser) {
   return { type: "SET_USER", payLoad: newUser };
 }
 
+export function setAllUsers(set) {
+  return { type: "SET_ALL_USERS", payLoad: set };
+}
+
 // export function updateUser(update) {
 //   return { type: "UPDATE_USER", payLoad: update };
 // }
@@ -25,6 +29,11 @@ export function updateTeacherDetails(update) {
 export function setAllTeacher(set) {
   return { type: "SET_ALL_TEACHERS", payLoad: set };
 }
+
+export function getAllTeacher(get) {
+  return { type: "GET_ALL_TEACHERS", payLoad: get };
+}
+
 
 //categories
 export function setAllCategories(add) {
