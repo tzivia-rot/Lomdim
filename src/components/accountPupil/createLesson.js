@@ -3,29 +3,36 @@ import "./accountPupil.css";
 import Map from "../maps/gMaps";
 import { connect } from "react-redux";
 import axios from "axios";
-import { setAllCategories, setAllTeacher } from "../../redux/action";
+import {
+  setAllCategories,
+  setAllTeacher,
+  setAllUsers,
+} from "../../redux/action";
 import SelectedCity from "./listCities";
 
 function mapStateToProps(state) {
   return {
     categories: state.category.category,
     teachers: state.teacher.teacherDetails,
+    user: state.user.allUsers,
   };
 }
 
 function CreateLesson(props) {
-  const { categories, dispatch, teachers } = props;
+  const { categories, dispatch, teachers, user } = props;
 
   //משתנים
   const [selected, setSelected] = useState("");
   const [selectedCity, setSelectedCity] = useState("");
-  const [showList, setShowList] = useState(true);
+  const [showList, setShowList] = useState(false);
   const [cities, setCities] = useState([]);
-  const [filterTeacher, setFilterTeacher] = useState(teachers);
+  const [filterTeacher, setFilterTeacher] = useState([]);
+  const [selectedTeacher, setSelectedTeacher] = useState();
+
   //כאשר עולה הדף יכנס לסטור כל הקטגוריות הנמצאות במסד נתונים
   useEffect(() => {
     axios
-    //ייבוא כל נושאי הלימוד מהמסד נתונים
+      //ייבוא כל נושאי הלימוד מהמסד נתונים
       .get(`http://localhost:3030/category/getAllCategories`)
       .then((res) => {
         console.log(res.data);
@@ -35,8 +42,37 @@ function CreateLesson(props) {
         console.log(err);
       });
     allTeachters();
+    allUsers();
     doApi();
   }, []);
+
+  //ייבוא רשימת מורים מהמסד נתונים
+  const allTeachters = async () => {
+    try {
+      let res = await axios.get(
+        `http://localhost:3030/teacherData/getAllTeachers`
+      );
+      console.log(res.data);
+      dispatch(setAllTeacher(res.data.getAllTeachers));
+      // Set the filterTeacher state here
+      setFilterTeacher(res.data.getAllTeachers);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  //ייבוא רשימת מורים מהמסד נתונים
+  const allUsers = async () => {
+    try {
+      let res = await axios.get(`http://localhost:3030/user/getAllUsers`);
+      console.log(res.data);
+      dispatch(setAllUsers(res.data.getAllUsers));
+      // Set the filterTeacher state here
+      //setFilterTeacher(res.data.getAllTeachers);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   //זימון כתובת API לרשימת ערים בישראל
   const doApi = async () => {
@@ -46,27 +82,13 @@ function CreateLesson(props) {
     setCities(res.data.result.records);
   };
 
-  //ייבוא רשימת מורים מהמסד נתונים
-  const allTeachters = async () => {
-    let res = await axios.get(
-      `http://localhost:3030/teacherData/getAllTeachers`
-    );
-    console.log(res.data);
-    dispatch(setAllTeacher(res.data.getAllTeachers));
-  };
-
   function searchTeachers() {
-    return (
-      setShowList(true) &&
-      setFilterTeacher(
-        teachers &&
-          teachers.filter((teacher) => {
-            return (
-              teacher.city === selectedCity && teacher.category.find(selected)
-            );
-          })
-      )
-    );
+    const filteredTeachers = teachers.filter((teacher) => {
+        teacher.city === selectedCity &&
+        teacher.categories.includes(selected)
+    });
+    setFilterTeacher(filteredTeachers);
+    setShowList(true);
   }
 
   return (
@@ -133,19 +155,43 @@ function CreateLesson(props) {
         </div>
 
         {showList ? (
-          <div className="card">
-            {filterTeacher.map((item) => (
+          <div>
+            {filterTeacher.map((item) => {
+              const foundUser = user.find((person) => item.userId === person._id);
+              return (
+
+                <React.Fragment key={foundUser.userName}>
+                {console.log(item)}
+                  <div className="card">
+                    <h5 className="card-header">
+                      {foundUser ? foundUser.userName : "User not found"}
+                    </h5>
+                    <div className="card-body">
+                      <h5 className="card-title">{item.city}</h5>
+                      <p className="card-text">{item.aboutMe}</p>
+                      <a href="#!" className="btn btn-primary">
+                        למידע נוסף
+                      </a>
+                    </div>
+                  </div>
+                </React.Fragment>
+              );
+            })}
+
+            {/* { filterTeacher.map((item) => (
               <React.Fragment key={item.city}>
-                <h5 className="card-header">{item.city}</h5>
+              <div className="card">
+                <h5 className="card-header">{foundUser ? foundUser.userName : "User not found"}</h5>
                 <div className="card-body">
-                  <h5 className="card-title">Special title treatment</h5>
+                  <h5 className="card-title">{item.city}</h5>
                   <p className="card-text">{item.aboutMe}</p>
                   <a href="#!" className="btn btn-primary">
                     למידע נוסף
                   </a>
                 </div>
+                </div>
               </React.Fragment>
-            ))}
+            ))} */}
           </div>
         ) : null}
       </div>

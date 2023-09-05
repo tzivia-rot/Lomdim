@@ -15,7 +15,7 @@ function App() {
     <div className="App"> 
       <Header />
       {/* <LessonHistory/> */}
-      <AccountPupil/>
+      {/* <AccountPupil/> */}
       {/* <ListCities/> */}
        <Body/>
        <Footer /> 

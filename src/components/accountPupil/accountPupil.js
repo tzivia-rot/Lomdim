@@ -24,7 +24,7 @@ function AccountPupil(props) {
     <>
       <div className="wrapper-pupil">
         <div>
-          <h1>ברוכים הבאים {currentUser.userName}</h1>
+          {/* <h1>ברוכים הבאים {currentUser.userName}</h1> */}
         </div>
 
         <Tabs activeKey={tabKey} onSelect={(e) => initTabKey(e)}>

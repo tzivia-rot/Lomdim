@@ -10,7 +10,7 @@ const reducer = produce((state, action) => {
       if (state.teacherDetails.lengh) {state.teacherDetails.push(action.payLoad)};
       break;
     case "UPDATE_TEACHER_DETAILS":
-      state.teacherDetails.filter((index) => index._id !== action.payload._id);
+      state.teacherDetails.filter((index) => index._id !== action.payLoad._id);
       break;
     case "SET_ALL_TEACHERS":
       state.teacherDetails = action.payLoad;

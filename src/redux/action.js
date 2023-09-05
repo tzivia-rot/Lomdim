@@ -4,6 +4,10 @@ export function addUser(newUser) {
   return { type: "SET_USER", payLoad: newUser };
 }
 
+export function setAllUsers(set) {
+  return { type: "SET_ALL_USERS", payLoad: set };
+}
+
 // export function updateUser(update) {
 //   return { type: "UPDATE_USER", payLoad: update };
 // }
