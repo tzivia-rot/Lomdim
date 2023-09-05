@@ -1,18 +1,24 @@
 import { produce } from "immer";
 
 const initialState = {
- 
-  currentUser: {},
+  currentUser: {
+    userId: "נעמה",
+    dateBirth: "1.8.2000",
+    city: "pt",
+    str: "tkjf",
+    numStr: "545",
+    status: true,
+    aboutMe: "fsdfs",
+    lessonPlace: "home",
+  },
 };
 
 const reducer = produce((state, action) => {
   switch (action.type) {
     case "SET_USER":
-      state.currentUser=(action.payLoad);
+      state.currentUser = action.payLoad;
       break;
 
-
-      
     // case "UPDATE_USER":
     //   state.cu = action.payLoad;
     //   break;
@@ -24,5 +30,4 @@ const reducer = produce((state, action) => {
   }
 }, initialState);
 
-
-export default reducer
+export default reducer;

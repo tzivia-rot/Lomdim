@@ -60,6 +60,7 @@ function Register(props) {
   }
 
   async function insertNewUser() {
+    // personaldetails
     try {
       const user = await newUserAndTeacher();
 
@@ -276,9 +277,9 @@ function Register(props) {
             </label>
           </div>
         </div>
-
+{/* //insertNewUser */}
         {!show ? (
-          <button class="btn-save1" onClick={insertNewUser}>
+          <button class="btn-save1" onClick={navigation('/personal_details')}>
             שמור והמשך
           </button>
         ) : (

@@ -4,6 +4,7 @@ import Home from "../home/home";
 import Login from "../Login/login";
 import Register from "../Register/register";
 import Blog from "../blog/blog";
+import UpdateUser from "../update/updateuser";
 import About from "../about/about";
 import PersonalDetails from "../Register/professionalDetails";
 import HowToLearnEnglish from "../blog/items-blogs/howToLearnEnglish";
@@ -27,6 +28,8 @@ export default function Body() {
         <Route path="/account_teacher" element={<AccountTeacher />} />
         <Route path="/page_teacher" element={<PageTeacher />} />
         <Route path="/about" element={<About />} />
+        <Route path="/update" element={<UpdateUser />} />
+
       </Routes>
     </>
   );

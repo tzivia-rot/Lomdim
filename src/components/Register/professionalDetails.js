@@ -6,7 +6,10 @@ import ModalCategories from "./modalCategories";
 
 function mapStateToProps(state) {
   return {
-    categories: state.category.category,
+
+
+
+
   };
 }
 
