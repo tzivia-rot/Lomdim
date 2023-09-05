@@ -1,6 +1,16 @@
 import { produce } from "immer";
 
 const initialState = {
+  currentUser: {
+    userId: "נעמה",
+    dateBirth: "1.8.2000",
+    city: "pt",
+    str: "tkjf",
+    numStr: "545",
+    status: true,
+    aboutMe: "fsdfs",
+    lessonPlace: "home",
+  },
   currentUser: {},
   allUsers: [],
 };
