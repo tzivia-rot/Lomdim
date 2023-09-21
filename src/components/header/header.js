@@ -1,23 +1,22 @@
-
-// import { Outlet } from 'react-router-dom';
-import { Link } from "react-router-dom";
-import React from 'react';
-import {Nav, NavLink, Bars, NavMenu, NavBtn, NavBtnLink, NavDropdownItem,NavDropdownMenu } from './headerStyle';
-import logoImg from '../picthers/logoImg.png'
-
-import { Dropdown, Menu } from 'semantic-ui-react'
-
-
+import React from "react";
+import {
+  Nav,
+  NavLink,
+  Bars,
+  NavMenu,
+  NavBtn,
+  NavBtnLink,
+} from "./headerStyle";
+import logoImg from "../picthers/logoImg.png";
 
 const Header = () => {
-
   return (
     <>
       <Nav>
         <Bars />
-        <img id='logo' alt='logo' src={logoImg}/>
+        <img id="logo" alt="logo" src={logoImg} />
         <NavMenu>
-          <NavLink to='/'  activeStyle>
+          <NavLink to="/" activeStyle>
             בית
           </NavLink>
           <NavLink to="/about" activeStyle>
@@ -26,16 +25,23 @@ const Header = () => {
           <NavLink to="/contact_us" activeStyle>
             צור קשר
           </NavLink>
-          <NavLink to='/blog' activeStyle>
+          <NavLink to="/blog" activeStyle>
             בלוג
           </NavLink>
         </NavMenu>
         <NavBtn>
-          <NavBtnLink to="/login">התחברות</NavBtnLink>
-          <NavBtnLink to="/register"> משתמש חדש</NavBtnLink>
+          <NavBtnLink
+            to={localStorage.getItem("loggedin") === null ? "/login" : ""}
+          >
+            התחברות
+          </NavBtnLink>
+          <NavBtnLink
+            to={localStorage.getItem("loggedin") === null ? "/register" : ""}
+          >
+            משתמש חדש
+          </NavBtnLink>
         </NavBtn>
       </Nav>
-
     </>
   );
 };

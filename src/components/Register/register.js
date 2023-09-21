@@ -1,7 +1,5 @@
 import { connect } from "react-redux";
 import React, { useEffect, useState } from "react";
-//import { ObjectId } from './mongoDBConnection'; 
-
 import "../Register/register.css";
 import ProfessionalDetails from "./professionalDetails";
 import {
@@ -19,7 +17,7 @@ function mapStateToProps(state) {
 }
 
 function Register(props) {
-  const { dispatch } = props;
+  const { dispatch, categories } = props;
   const navigation = useNavigate();
 
   //all
@@ -30,20 +28,22 @@ function Register(props) {
   const [gender, setGender] = useState("male");
   const [typeUser, setTypeUser] = useState("");
   const [show, setShow] = useState(false);
+  const [click, setClick] = useState("");
+
   //teacher
   const [allCheckedStudy, setAllCheckedStudy] = useState([]);
   const [allCheckedPlace, setAllCheckedPlace] = useState([]);
   const [detail, setDetail] = useState("");
   const [yearBirth, setYearBirth] = useState("");
   const [city, setCity] = useState("");
-  const [street, setStreet] = useState("");
-  const [houseNum, setHouseNum] = useState("");
+  // const [street, setStreet] = useState("");
+  // const [houseNum, setHouseNum] = useState("");
   const [addCategoties, setAddCategories] = useState("");
   const [addSubCategories, setAddSubCategories] = useState([]);
 
   async function newUserAndTeacher() {
     try {
-      const {data} = await axios.post(`http://localhost:3030/user/newUser`, {
+      const { data } = await axios.post(`http://localhost:3030/user/newUser`, {
         userName: userName,
         password: password,
         phone: phone,
@@ -52,28 +52,33 @@ function Register(props) {
         status: typeUser,
       });
       console.log(data);
-      return ( {"data":data} );
+      //משתמש נוכחי נשמר באחסון של הדפדפן
+      localStorage.setItem("user", JSON.stringify(data.user));
+      localStorage.setItem("loggedin", true);
+
+      return { data: data };
     } catch (err) {
       console.error(err);
       return { message: err };
     }
   }
 
-   
+  function createUserSubmit() {
+    if (click === "תלמיד") insertNewUser();
+    else if (click === "מורה") insertNewTeacher();
+    else console.log("button error");
+  }
+
   async function insertNewUser() {
-    console.log("enter function")
+    console.log("enter function");
     try {
       navigation("/account_pupil");
 
       const user = await newUserAndTeacher();
-      console.log("create user in server")
+      console.log("create user in server");
 
       if (user.data && user.data.newUser) {
         dispatch(addUser(user.data.newUser));
-        console.log("insert to store")
-
-        console.log("go to nav")
-
       } else {
         console.log("User data not available");
       }
@@ -86,32 +91,36 @@ function Register(props) {
     try {
       navigation("/page_teacher");
 
-      let user =await  newUserAndTeacher();
-      user= user.data;
-        console.log(user["_id"].toString());
-        const {data} = await axios.post(
-          `http://localhost:3030/teacherData/newData`,
-          {
-            dateBirth: yearBirth,
-            city: city,
-            str: street,
-            numStr: houseNum,
-            lessonPlace: allCheckedPlace,
-            aboutMe: detail,
-            userId: user["_id"],
-           
-            categories: allCheckedStudy,
-          }
-        );
-        if (data && data.newData) {
-          console.log(data);
-          dispatch(addUser(user.data.newUser));
-          dispatch(addTeacherDetails(data.newData));
-        } else {
-          console.log("Error: Teacher data not available");
-        }
+      let user = await newUserAndTeacher();
+      user = user.data;
 
-    
+      if (user && user.newUser) {
+        dispatch(addUser(user.newUser));
+      } else {
+        console.log("User data not available");
+      }
+
+      const { data } = await axios.post(
+        `http://localhost:3030/teacherData/newData`,
+        {
+          dateBirth: yearBirth,
+          city: city,
+          // str: street,
+          // numStr: houseNum,
+          lessonPlace: allCheckedPlace,
+          aboutMe: detail,
+          userId: user["_id"],
+          categories: allCheckedStudy,
+        }
+      );
+      if (data && data.newData) {
+        console.log(data);
+        dispatch(addUser(user.data.newUser));
+        dispatch(addTeacherDetails(data.newData));
+      } else {
+        console.log("Error: Teacher data not available");
+      }
+
       // } else {
       //   console.log("Error: User data not available");
       // }
@@ -165,15 +174,21 @@ function Register(props) {
             <div className="col-12">
               <div
                 className="card card-registration card-registration-2 shadow"
-                style={{ borderRadius: "15px", border:"white", background:" white"}}
+                style={{
+                  borderRadius: "15px",
+                  border: "white",
+                  background: " white",
+                }}
               >
                 <div className="card-body p-0">
-                  <form className="needs-validation" novalidate>
+                  <form
+                    className="needs-validation"
+                    novalidate
+                    onSubmit={createUserSubmit}
+                  >
                     <div className="row g-0">
                       <div className="col-lg-6">
-                        <p className="display-6">
-                          הרשמה
-                        </p>
+                        <p className="display-6">הרשמה</p>
 
                         <div className="mx-1 mx-md-4">
                           <div className="d-flex flex-row align-items-center mb-4">
@@ -184,8 +199,8 @@ function Register(props) {
                                 id="form3Example1c"
                                 class="form-control"
                                 placeholder="הכנס את שמך"
-                                onChange={(e) => setUserName(e.target.value)}
                                 value={userName}
+                                onChange={(e) => setUserName(e.target.value)}
                                 autoComplete="off"
                                 required
                               />
@@ -279,7 +294,7 @@ function Register(props) {
                             <div class="col-12">
                               <p>בתור מי אתה נרשם?</p>
                               <select
-                                class="select form-control" 
+                                class="select form-control"
                                 aria-label=".form-control example"
                                 onChange={(e) => {
                                   setTypeUser(e.target.value);
@@ -305,7 +320,7 @@ function Register(props) {
                               <button
                                 type="submit"
                                 className="btn btn-primary btn"
-                                onClick={insertNewUser}
+                                onClick={() => setClick("תלמיד")}
                               >
                                 הרשמה
                               </button>
@@ -316,8 +331,8 @@ function Register(props) {
 
                       {show ? (
                         <ProfessionalDetails
-                          setHouseNum={setHouseNum}
-                          setStreet={setStreet}
+                          // setHouseNum={setHouseNum}
+                          // setStreet={setStreet}
                           setCity={setCity}
                           setYearBirth={setYearBirth}
                           setDetail={setDetail}
@@ -327,8 +342,10 @@ function Register(props) {
                           setAllCheckedStudy={setAllCheckedStudy}
                           setAddCategories={setAddCategories}
                           // setAddSubCategories={setAddSubCategories}
-                          addNewTeacher={insertNewTeacher}
+                          // addNewTeacher={insertNewTeacher}
                           addCategory={add_category}
+                          categories={categories}
+                          setClick={setClick}
                         />
                       ) : (
                         <div class="col-md-10 col-lg-6 d-flex align-items-end order-1 order-lg-2 bg-green text-white">

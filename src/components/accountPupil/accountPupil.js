@@ -4,17 +4,27 @@ import "./accountPupil.css";
 import CreateLesson from "./createLesson";
 import { Tabs, Tab } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useNavigate } from "react-router-dom";
 
 function mapStateToProps(state) {
   return {
-    currentUser: state.user.currentUser,
+    // currentUser: state.user.currentUser,
     categories: state.category.category,
   };
 }
 
 function AccountPupil(props) {
-  const [page, setPage] = useState();
-  const { currentUser, categories } = props;
+  // const [page, setPage] = useState();
+  const { categories } = props;
+  const navigation = useNavigate();
+
+  //get current user
+  const user = JSON.parse(localStorage.getItem("user"));
+  //logout
+  const handleLogout = ()=>{
+    localStorage.removeItem("loggedin")
+    navigation("/");
+  }
 
   // function createLesson(){
   //     setIsChecked(true);
@@ -23,10 +33,31 @@ function AccountPupil(props) {
   return (
     <>
       <div className="wrapper-pupil">
-        <div>
-          {/* <h1>ברוכים הבאים {currentUser.userName}</h1> */}
+        <br />
+        <div className="row justify-content-between">
+          <div className="col">
+            <h2> שלום, {user.userName}</h2>
+          </div>
+          <div className="col-md-auto">
+          <button
+              type="button"
+              class="btn btn-outline-primary btn"
+              // onClick={insertToAccount}
+            >
+              עדכון פרטים
+            </button>
+            </div>
+          <div className="col-lg-2">
+            <button
+              type="button"
+              class="btn btn-outline-danger btn"
+              onClick={handleLogout}
+            >
+              התנתק
+            </button>
+          </div>
         </div>
-
+        <br />
         <Tabs activeKey={tabKey} onSelect={(e) => initTabKey(e)}>
           <Tab eventKey="one" title="חפש מורה">
             <CreateLesson categories={categories} />
@@ -38,7 +69,6 @@ function AccountPupil(props) {
             <p>Tab 3</p>
           </Tab>
         </Tabs>
-        
       </div>
     </>
   );
